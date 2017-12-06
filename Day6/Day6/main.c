@@ -27,13 +27,9 @@ void writeHistory(uint8_t blockHistory[][16], int historyCount, const uint8_t *b
 	}
 }
 
-int main(int argc, char *argv[]) {
-	if (argc != 2) {
-		return 0;
-	}
-
+void partOne(char *filename) {
 	// Open file
-	FILE *input = fopen(argv[1], "r");
+	FILE *input = fopen(filename, "r");
 	if (input == NULL) {
 		puts("File not found");
 		return -1;
@@ -48,6 +44,7 @@ int main(int argc, char *argv[]) {
 		}
 		numBlocks++;
 	}
+	fclose(input);
 
 	int historyCount = 1;
 	uint8_t blockHistory[16000][16] = { 0 };
@@ -81,6 +78,14 @@ int main(int argc, char *argv[]) {
 	}
 
 	printf("Num Distributions: %d\n", historyCount);
+}
+
+int main(int argc, char *argv[]) {
+	if (argc != 2) {
+		return 0;
+	}
+
+	partOne(argv[1]);
 
 	return 0;
 }
