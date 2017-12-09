@@ -97,6 +97,8 @@ int main(int argc, char *argv[]) {
 	while (!feof(input)) {
 		int amount = 0;
 		int conditionAmount = 0;
+
+		// Format: reg op amt if reg2 cond condAmt
 		fscanf(input, "%7s %3s %d if %7s %2s %d", registerOneBuffer, opcodeBuffer, &amount, registerTwoBuffer, conditionBuffer, &conditionAmount);
 
 		//printf("%s %s %d if %s %s %d\n", registerOneBuffer, opcodeBuffer, amount, registerTwoBuffer, conditionBuffer, conditionAmount);
